@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 
 import {AuthService} from './auth.service';
 import {Store} from '@ngrx/store';
+import {getMaskUserName} from './state/user.reducer';
+
 
 @Component({
   templateUrl: './login.component.html',
@@ -20,12 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.select('user').subscribe(
-      user => {
-        if (user) {
-          this.maskUserName = user.maskUserName;
-        }
-      }
+    // TODO: Unsubscribe
+    this.store.select(getMaskUserName).subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      maskUserName => this.maskUserName = maskUserName
     );
   }
 
