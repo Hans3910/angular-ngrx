@@ -30,7 +30,7 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ name: 'APM Demo App Devtools',
       maxAge: 25,
-      logOnly: environment.production })
+      logOnly: environment.production }),
   ],
   declarations: [
     AppComponent,
